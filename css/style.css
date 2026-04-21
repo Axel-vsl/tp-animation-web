@@ -137,3 +137,95 @@ button { cursor: pointer; font-family: inherit; }
     gap: var(--space-sm);
   }
 }
+/* ===== Transitions sur les interactions ===== */
+.btn {
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.nav__menu a {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav__menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition-base);
+}
+
+.nav__menu a:hover::after {
+  width: 100%;
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__title {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero__subtitle {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero .btn {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.btn--primary {
+  animation: pulse 2s infinite;
+}
+
+.btn--primary:hover {
+  animation: none;
+}
+
+/* ===== Accessibilité ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
