@@ -91,3 +91,49 @@ button { cursor: pointer; font-family: inherit; }
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+/* ===== Flexbox — Navigation ===== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__menu {
+  display: flex;
+  gap: var(--space-md);
+}
+
+/* ===== Grid — Section Features ===== */
+.features {
+  padding: var(--space-lg) var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--color-dark);
+  margin-bottom: var(--space-md);
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+/* ===== Media queries ===== */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  .nav {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .nav__menu {
+    gap: var(--space-sm);
+  }
+}
